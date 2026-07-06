@@ -1,18 +1,104 @@
 <!DOCTYPE html>
 <html lang="ja">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="styleseet" href="index.css">
-        
-        <title>Gitの練習</title>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shoi's Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-    <body>
-        <h1>テストページ</h1>
-        <p>
-            test page
-        </p>
-    </body>
+    <header class="header">
+        <div class="header-container">
+            <h1 class="logo">shoi's Portfolio</h1>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#works">Works</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Welcome to My Portfolio</h2>
+            <p>思考をカタチにする、Webデザインのポートフォリオサイトです。</p>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-flex">
+                <div class="about-img">
+                    <div class="img-placeholder">Image</div>
+                </div>
+                <div class="about-text">
+                    <h3>shoi / Web Designer</h3>
+                    <p>
+                        Webデザイナーを目指して日々勉強中です。ユーザーにとって見やすく、心地よい、目的を持ったデザインを心がけています。
+                    </p>
+                    <p><strong>スキル：</strong> HTML / CSS / Affinity / 自作PC /</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="works" class="works-section">
+        <div class="container">
+            <h2 class="section-title">Works</h2>
+            <div class="works-grid">
+                
+                <div class="work-card">
+                    <div class="work-img">
+                        <div class="img-placeholder">Works Image 1</div>
+                    </div>
+                    <div class="work-info">
+                        <h3>模擬ブランドサイト</h3>
+                        <p>オーガニックスキンケアブランドのコンセプトサイト。ナチュラルな世界観を表現しました。</p>
+                        <span class="category">Web Design / Coding</span>
+                    </div>
+                </div>
+
+                <div class="work-card">
+                    <div class="work-img">
+                        <div class="img-placeholder">Works Image 2</div>
+                    </div>
+                    <div class="work-info">
+                        <h3>バナーデザイン</h3>
+                        <p>架空のキャンペーンバナー。視認性とクリック率を意識した構成です。</p>
+                        <span class="category">Banner Design</span>
+                    </div>
+                </div>
+
+                <div class="work-card">
+                    <div class="work-img">
+                        <div class="img-placeholder">Works Image 3</div>
+                    </div>
+                    <div class="work-info">
+                        <h3>準備中</h3>
+                        <p>新しい制作実績を現在準備中です。</p>
+                        <span class="category">-</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Contact</h2>
+            <p class="contact-lead">お仕事のご依頼やご相談など、お気軽にお問い合わせください。</p>
+            <a href="mailto:your-email@example.com" class="btn">メールを送る</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2026 Happa. All Rights Reserved.</p>
+    </footer>
+
+</body>
 </html>
