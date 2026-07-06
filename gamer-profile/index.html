@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Gamer Card Generator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <style>
+        body { background-color: #121214; color: #fff; font-family: sans-serif; text-align: center; padding: 30px; }
+        h1 { color: #00ffcc; text-shadow: 0 0 10px #00ffcc; }
+        
+        /* 入力・選択フォームのスタイル */
+        .controls { background: #1f1f23; padding: 20px; border-radius: 10px; max-width: 400px; margin: 0 auto 20px; text-align: left; }
+        .controls label { display: block; margin-top: 10px; color: #aaa; }
+        .controls input, .controls select { width: 100%; padding: 8px; margin-top: 5px; border-radius: 5px; border: 1px solid #333; background: #333; color: #fff; box-sizing: border-box; }
+        
+        /* 生成されるカードのデザイン */
+        .card-container { display: inline-block; margin-top: 20px; }
+        #myCard {
+            width: 400px; height: 220px; background: linear-gradient(135deg, #1e3c72, #2a5298);
+            border-radius: 15px; border: 2px solid #00ffcc; padding: 20px; text-align: left; position: relative; box-sizing: border-box;
+        }
+        #cardName { font-size: 24px; font-weight: bold; margin-top: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        #cardGametitle { font-size: 24px; font-weight: bold; margin-top: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        #cardGame { font-size: 18px; color: #00ffcc; margin-top: 5px; }
+        .card-footer { position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #ccc; }
+
+        /* 保存ボタン */
+        .btn { background: #00ffcc; color: #000; border: none; padding: 12px 25px; font-size: 16px; font-weight: bold; border-radius: 5px; cursor: pointer; margin-top: 20px; box-shadow: 0 0 15px #00ffcc; }
+        .btn:hover { background: #00ccaa; }
+    </style>
+</head>
+<body>
+
+    <h1>GAMER CARD MAKER 🏰</h1>
+
+    <div class="controls">
+        <label>🛡️ プレイヤー名</label>
+        <input type="text" id="nameInput" value="名前入力欄" oninput="updateCard()">
+
+        <label>🎮 好きなゲームタイトル</label>
+        <input type="text" id="gametitleInput" value="好きなゲームタイトル" oninput="updateCard()">
+
+        <label>⚔️ メインゲーム</label>
+        <select id="gameInput" onchange="updateCard()">
+            <option value="FPS PLAYER 🎮">FPS</option>
+            <option value="RPG ADVENTURER 🗺️">RPG</option>
+            <option value="MMO RPG ">MMORPG</option>
+            <option value="CRAFT ">クラフト</option>
+            <option value="SANDBOX BUILDER 🏰">サンドボックス</option>
+            <option value="HACK AND SLASH ">ハックアンドスラッシュ</option>
+        </select>
+
+        <label>🎨 カードの色（クリック選択）</label>
+        <select id="colorInput" onchange="updateCard()">
+            <option value="linear-gradient(135deg, #1e3c72, #2a5298)">サイバーブルー</option>
+            <option value="linear-gradient(135deg, #b31217, #e52d27)">マグマレッド</option>
+            <option value="linear-gradient(135deg, #0f2027, #203a43, #2c5364)">ディープダーク</option>
+        </select>
+    </div>
+
+    <div class="card-container">
+        <div id="myCard">
+            <div id="cardName">名前入力欄</div>
+            <div id="cardGametitle">好きなゲームタイトル</div>
+            <div id="cardGame">FPS PLAYER 🎮</div>
+            <div class="card-footer">🛡️ HAPPA's FORTRESS</div>
+        </div>
+    </div>
+
+    <br>
+    <button class="btn" onclick="downloadCard()">カードを画像として保存 ⚔️</button>
+
+    <script>
+        // 入力された文字や選択をリアルタイムでカードに反映する魔法
+        function updateCard() {
+            const name = document.getElementById('nameInput').value;
+            const gametitle = document.getElementById('gametitleInput').value;
+            const game = document.getElementById('gameInput').value;
+            const bgGradient = document.getElementById('colorInput').value;
+
+            document.getElementById('cardName').innerText = name;
+            document.getElementById('cardGametitle').innerText = gametitle;
+            document.getElementById('cardGame').innerText = game;
+            document.getElementById('myCard').style.background = bgGradient;
+        }
+
+        // カードをパシャリと撮影してダウンロードする魔法
+        function downloadCard() {
+            const card = document.getElementById('myCard');
+            html2canvas(card).then(canvas => {
+                const link = document.createElement('a');
+                link.download = 'gamer-card.png'; // ダウンロード時のファイル名
+                link.href = canvas.toDataURL();
+                link.click();
+            });
+        }
+    </script>
+
+</body>
+</html>
